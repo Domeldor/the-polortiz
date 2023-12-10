@@ -95,7 +95,7 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+	document.addEventListener("DOMContentLoaded", function() {
 	  const carousel = document.getElementById("carousel");
 	  const images = carousel.getElementsByTagName("img");
 
@@ -103,7 +103,7 @@
 
 	  function showImage(index) {
 	    for (let i = 0; i < images.length; i++) {
-	      images[i].style.transform = `translateX(${-index * 100}%)`;
+	      images[i].style.opacity = i === index ? 1 : 0;
 	    }
 	  }
 
@@ -117,6 +117,11 @@
 	    showImage(currentIndex);
 	  }
 
+	  function autoRotate() {
+	    nextImage();
+	    setTimeout(autoRotate, 5000); // Cambia la imagen cada 5 segundos
+	  }
+
 	  // Agrega botones para navegar en el carrusel
 	  const nextButton = document.createElement("button");
 	  nextButton.innerText = "Siguiente";
@@ -126,11 +131,12 @@
 	  prevButton.innerText = "Anterior";
 	  prevButton.addEventListener("click", prevImage);
 
-	  carousel.appendChild(prevButton);
-	  carousel.appendChild(nextButton);
+	  carousel.parentNode.insertBefore(prevButton, carousel);
+	  carousel.parentNode.insertBefore(nextButton, carousel.nextSibling);
 
 	  // Inicia el carrusel
 	  showImage(currentIndex);
+	  setTimeout(autoRotate, 5000); // Inicia la rotación automática después de 5 segundos
 	});
   </script>
 </body>

@@ -10,15 +10,20 @@
 
 #carousel {
   width: 80%;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
 
 #carousel img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.5s ease;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  transition: opacity 1s ease;
 }
 
+#carousel img:not(:first-child) {
+  opacity: 0;
+}
 /* Agrega estilos adicionales según sea necesario */
