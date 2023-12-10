@@ -12,7 +12,7 @@
     }
 
     .section {
-      height: 100vh;
+      height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -54,21 +54,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      height: 60vh;
       background: #1f1f96;
       overflow: hidden;
     }
 
-    #carousel {
-      width: 80%;
-      overflow: hidden;
-    }
+	#carousel {
+	  height: 100%;
+	  overflow: hidden;
+	  position: relative;
+	}
 
-    #carousel img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
+	#carousel img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  position: absolute;
+	  transition: opacity 1s ease;
+	}
+
+#carousel img:not(:first-child) {
+  opacity: 0;
+}
   </style>
 </head>
 <body>
