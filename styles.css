@@ -1,0 +1,24 @@
+/* Estilos adicionales para mejorar la apariencia */
+#section3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e74c3c;
+  overflow: hidden;
+}
+
+#carousel {
+  width: 80%;
+  overflow: hidden;
+  position: relative;
+}
+
+#carousel img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+
+/* Agrega estilos adicionales según sea necesario */
